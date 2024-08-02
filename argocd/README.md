@@ -165,6 +165,9 @@ Once your manifest files have been applied, the next step is to bootstrap them t
        --dest-namespace argocd
     ```
 
+    ![image](https://github.com/user-attachments/assets/fc25882e-0c2a-47c3-b567-346fe5327747)
+
+
 11. **Sync Your Application:**
 
     Finally, sync your app using the following command:
@@ -172,6 +175,11 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     argocd app sync newapp
     ```
+
+    ![image](https://github.com/user-attachments/assets/2666d3e5-3e05-4da9-a7c5-cf59809310fd)
+    ![image](https://github.com/user-attachments/assets/637dd281-c02a-4280-b652-20a8f8bcb69d)
+
+
 
 Once the sync is successful, you can log in to your ArgoCD via the browser to check it out.
 
