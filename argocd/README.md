@@ -183,6 +183,9 @@ Once your manifest files have been applied, the next step is to bootstrap them t
 
 Once the sync is successful, you can log in to your ArgoCD via the browser to check it out.
 
+![image](https://github.com/user-attachments/assets/fec978a1-f2e0-4b6d-8862-1ac8afd47a7f)
+
+
 ## Conclusion
 
 By following these steps, you have set up a Kubernetes cluster, applied your manifest files, and integrated ArgoCD for continuous delivery. This setup not only streamlines your deployment process but also enhances the manageability and scalability of your applications.
