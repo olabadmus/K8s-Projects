@@ -137,6 +137,8 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     argocd repo add https://github.com/username/repourl --username <your-github-username> --password <your-personal-access-token>
     ```
+    ![image](https://github.com/user-attachments/assets/798f9182-48d9-4780-a624-0e9263e4698c)
+
 
     Note: To get your GitHub password, use your GitHub token, which can be generated in developer’s settings.
 
@@ -148,15 +150,17 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     kubectl config get-contexts
     argocd cluster add <context-name>
     ```
+    ![image](https://github.com/user-attachments/assets/3fa96873-7a60-4eb6-829d-de5fb7d5c280)
+
 
 10. **Create and Sync Your Application:**
 
     Once the cluster has been added successfully, proceed to create your app and configure your ArgoCD using:
 
     ```sh
-    argocd app create appname \
-       --repo https://github.com/username/repourl \
-       --path manifests/ \
+    argocd app create tundeapp \
+       --repo https://github.com/olabadmus/K8s-Projects.git \
+       --path manifests \
        --dest-server https://kubernetes.default.svc \
        --dest-namespace argocd
     ```
