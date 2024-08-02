@@ -30,8 +30,10 @@ In this article, we will learn how to bootstrap our Kubernetes cluster with Argo
 ### Clone the repository
 
 ```sh
-git clone https://github.com/Victoria-OA/manifests.git
+git clone https://github.com/philcz16/manifests
 ```
+![image](https://github.com/user-attachments/assets/d8cdc2e5-f48d-4d2e-950b-b7036511232c)
+
 
 cd into the eks folder which contains the Terraform files to provision your cluster on AWS:
 
@@ -40,6 +42,12 @@ terraform init
 terraform plan
 terraform apply
 ```
+![image](https://github.com/user-attachments/assets/5c42ad05-baa3-4cc5-a44f-f0d710f2b28a)
+![image](https://github.com/user-attachments/assets/5d13f81e-374a-49c1-a3ba-415aa4aa68c8)
+![image](https://github.com/user-attachments/assets/528b9002-5ccb-4a13-bde1-7779347bce54)
+
+
+
 
 ### Update EKS Configuration
 
