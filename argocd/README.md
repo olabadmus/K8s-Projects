@@ -46,6 +46,8 @@ terraform apply
 ![image](https://github.com/user-attachments/assets/5d13f81e-374a-49c1-a3ba-415aa4aa68c8)
 ![image](https://github.com/user-attachments/assets/528b9002-5ccb-4a13-bde1-7779347bce54)
 
+![image](https://github.com/user-attachments/assets/4cd814ed-cbc7-4c4b-b190-aa6b73b1c00f)
+![image](https://github.com/user-attachments/assets/9f1f4622-0e7d-4895-b93d-38e822e1c2a7)
 
 
 
@@ -54,8 +56,10 @@ terraform apply
 After our EKS configuration has been successfully applied to AWS, update it using the following command so our manifest files can be applied to the cluster:
 
 ```sh
-aws eks --region <region> update-kubeconfig --name <cluster-name>
+aws eks update-kubeconfig --name demo-cluster --region us-east-1
 ```
+![image](https://github.com/user-attachments/assets/b397b6e5-3f1b-4103-aaef-705418785380)
+
 
 ### Apply Manifest Files
 
@@ -64,6 +68,7 @@ After updating your cluster to receive manifests configuration, apply the files 
 ```sh
 kubectl apply -f app.yaml
 ```
+![image](https://github.com/user-attachments/assets/3f03b75f-1772-4567-b3d0-f33e1a4dbb5f)
 
 ### Bootstrapping with ArgoCD
 
@@ -80,6 +85,8 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
     ```
+    ![image](https://github.com/user-attachments/assets/926dccdd-c482-43fb-bce1-4b8171552acb)
+
 
 3. **Confirm ArgoCD Pods:**
 
@@ -88,6 +95,8 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     kubectl get pods -n argocd
     ```
+    ![image](https://github.com/user-attachments/assets/04644a70-50ca-4299-a07e-9f7f1d43661a)
+
 
 4. **Map Port for ArgoCD Access:**
 
@@ -96,6 +105,8 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     kubectl port-forward svc/argocd-server -n argocd 8080:443
     ```
+    ![image](https://github.com/user-attachments/assets/8b861a94-d9f9-43a1-877f-38d391917489)
+
 
 5. **Retrieve ArgoCD Admin Password:**
 
@@ -104,6 +115,8 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
     ```
+    ![image](https://github.com/user-attachments/assets/6b4c38d6-9ede-4e5f-b891-41a1a1cae7d2)
+
 
 6. **Log in to ArgoCD:**
 
@@ -112,8 +125,12 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     ```sh
     argocd login localhost:8080
     ```
+    ![image](https://github.com/user-attachments/assets/9e6e17f5-f3dc-45d0-a646-e6abaf862894)
+   ![image](https://github.com/user-attachments/assets/d32dc3e5-35ce-4d05-891b-71a9457a669e)
 
-7. **Connect GitHub Repository to ArgoCD:**
+
+
+8. **Connect GitHub Repository to ArgoCD:**
 
     Once logged in successfully, connect the GitHub repo that contains the manifest with the following command:
 
@@ -123,7 +140,7 @@ Once your manifest files have been applied, the next step is to bootstrap them t
 
     Note: To get your GitHub password, use your GitHub token, which can be generated in developer’s settings.
 
-8. **Add Your Cluster to ArgoCD:**
+9. **Add Your Cluster to ArgoCD:**
 
     Once your repo has been connected successfully, add your cluster to the ArgoCD server using the following command:
 
@@ -132,7 +149,7 @@ Once your manifest files have been applied, the next step is to bootstrap them t
     argocd cluster add <context-name>
     ```
 
-9. **Create and Sync Your Application:**
+10. **Create and Sync Your Application:**
 
     Once the cluster has been added successfully, proceed to create your app and configure your ArgoCD using:
 
@@ -144,7 +161,7 @@ Once your manifest files have been applied, the next step is to bootstrap them t
        --dest-namespace argocd
     ```
 
-10. **Sync Your Application:**
+11. **Sync Your Application:**
 
     Finally, sync your app using the following command:
 
